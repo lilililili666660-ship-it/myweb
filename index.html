@@ -1,99 +1,111 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>大数据社团注册</title>
-    </head>
-    <body>
-        <tr>
-        <h1>大数据社团等你加入</h1>
-        </tr><tr>
-            <br>
-        <td>性别：</td>
-        <td>
-            <input type="radio" name="sex" id="男"><label for="nan">男</label>
-            <input type="radio" name="sex" id="女"><label for="nv">女</label>
-        </td>
-        </tr>
-        <tr>
-            <br>
-        <td>生日：</td>
-        <td>
-            <select>
-                <option>--请选择年份--</option>
-                <option>2001</option>
-                <option>2002</option>
-            </select>
-            <select>
-                <option>--请选择月份--</option>
-                <option>1</option>
-                <option>2</option>
-            </select>
-            <select>
-                <option>--请选择日--</option>
-                <option>1</option>
-                <option>2</option>
-            </select>
-        </td>
-        </tr>
-        <br>
-        <tr>
-        <td>所在地区：</td>
-        <td><input type="text" value="成都"></td>
-        </tr>
-        <br>
-        <tr>
-        <td>政治面貌：</td>
-        <td>
-            <input type="radio" name="zzmm" id="团员">团员
-            <input type="radio" name="zzmm" id="预备党员">预备党员
-            <input type="radio" name="zzmm" id="群众">群众
-        </td>
-        </tr>
-        <br>
-        <tr>
-        <td>学历：</td>
-        <td><input type="text" value="大学"></td>
-        </tr>
-        <br>
-        <tr>
-        <td>爱好：</td>
-        <td>
-            <input type="radio" name="hobby" id="敲代码">敲代码
-            <input type="radio" name="hobby" id="画画">画画
-            <input type="radio" name="hobby" id="剪视频">剪视频
-            <input type="radio" name="hobby" id="羽毛球">羽毛球
-            <input type="radio" name="hobby" id="都喜欢">都喜欢
-        </td>
-        </tr>
-        <br>
-        <tr>
-        <td>个人介绍：</td>
-        <td><textarea>个人简介</textarea></td>
-        </tr>
-        <br>
-        <tr>
-        <td>
-            <input type="submit" value="免费注册">
-        </td>
-        </tr>
-        <br>
-        <tr>
-        <td>
-            <input type="checkbox" checked="checked"> 我同意注册条款和会员加入标准>
-        </td>
-        </tr>
-        <br>
-        <tr>
-        <td>
-            <a href="#">我是会员，立即登录 </a>
-        </td>
-        </tr>
-        <br>
-        <td>
-            <h3>我承诺</h3>
-            <li>积极参加社团活动</li>
-            <li>不偷懒</li>
-            <li>态度积极</li>
-        </td>
-    </body>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>闺蜜专属网站</title>
+<style>
+    body{
+        margin:0;
+        overflow:hidden;
+        background: linear-gradient(135deg,#ffd1dc,#ffb6c1,#ffc0cb);
+        font-family: "Arial","PingFang SC","Microsoft YaHei";
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+    }
+
+    .card{
+        text-align:center;
+        padding:40px;
+        border-radius:25px;
+        background: rgba(255,255,255,0.25);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    h1{
+        font-size:50px;
+        color:#fff;
+        text-shadow: 0 0 15px #ff69b4;
+        margin-bottom:20px;
+        animation: pop 1.5s ease-in-out infinite alternate;
+    }
+
+    p{
+        font-size:20px;
+        color:#fff;
+        margin-top:10px;
+    }
+
+    button{
+        margin-top:20px;
+        padding:12px 25px;
+        border:none;
+        border-radius:30px;
+        background:#ff69b4;
+        color:white;
+        font-size:16px;
+        cursor:pointer;
+        box-shadow:0 5px 15px rgba(255,105,180,0.5);
+    }
+
+    button:hover{
+        transform:scale(1.1);
+    }
+
+    @keyframes pop{
+        from{transform:scale(1);}
+        to{transform:scale(1.05);}
+    }
+
+    .heart{
+        position:absolute;
+        color:#ff4d6d;
+        font-size:20px;
+        animation: float 6s linear infinite;
+    }
+
+    @keyframes float{
+        0%{transform:translateY(100vh) scale(0.5);opacity:1;}
+        100%{transform:translateY(-10vh) scale(1.5);opacity:0;}
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1 id="title">闺蜜我爱你</h1>
+    <p>黎莎莎和苏萌要当一辈子好闺蜜</p>
+    <button onclick="showLove()">点我一下 💗</button>
+</div>
+
+<script>
+function showLove(){
+    document.getElementById("title").innerText = "我永远爱你 💖";
+}
+
+// 爱心生成
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💗";
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (Math.random()*20 + 10) + "px";
+    heart.style.animationDuration = (Math.random()*3 + 3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+
+setInterval(createHeart,300);
+</script>
+
+</body>
 </html>
